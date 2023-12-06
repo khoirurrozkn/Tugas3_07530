@@ -1,23 +1,25 @@
 package utils;
 
 import entity.PakaianEntity;
-import org.json.simple.JsonArray;
+import org.json.simple.JSONArray;
 import org.json.simple.JsonObject;
 
 import java.util.ArrayList;
 
 public class ArrayListToJsonArray {
-    public static JsonArray convert( ArrayList<PakaianEntity> request ){
-        JsonArray jsonArray = new JsonArray();
+    public static JSONArray convert(ArrayList<PakaianEntity> data ){
+        JSONArray response = new JSONArray();
 
-        for ( PakaianEntity value : request ){
+        for ( PakaianEntity value : data ){
             JsonObject jsonObject = new JsonObject();
             jsonObject.put( "id", value.getId() );
             jsonObject.put( "status", value.getStatus() );
 
-            jsonArray.add( jsonObject );
+            response.add( jsonObject );
         }
 
-        return jsonArray;
+        return response;
     }
+
+    // method static overload lain apabila ada yang mau ubah dari list ke json
 }
